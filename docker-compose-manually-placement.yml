@@ -46,6 +46,7 @@ services:
     container_name: broker-avivm281
     volumes:
       - ./config:/etc/kafka/demo
+      - ./kafka-data/broker-avivm281:/var/lib/kafka/data
     ports:
       - "9091:9091"
       - "8091:8091"
@@ -59,10 +60,10 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-1:2181,zookeeper-2:2182,zookeeper-3:2183'
       KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 2
       KAFKA_JMX_PORT: 8091
-      KAFKA_CONFLUENT_LOG_PLACEMENT_CONSTRAINTS: '{"version":2,"replicas":[{"count":2,"constraints":{"rack":"mel"}},{"count":1,"constraints":{"rack":"euhq"}}],"observers":[{"count":1,"constraints":{"rack":"mel-aop"}},{"count":1,"constraints":{"rack":"euhq-aop"}}]}'
       KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 4
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_MIN_INSYNC_REPLICAS: 2
+      KAFKA_CONFLUENT_BALANCER_ENABLE: "false"
     depends_on:
       - zookeeper-1
       - zookeeper-2
@@ -72,6 +73,9 @@ services:
     image: confluentinc/cp-server:7.1.0
     hostname: broker-avivm282
     container_name: broker-avivm282
+    volumes:
+      - ./config:/etc/kafka/demo
+      - ./kafka-data/broker-avivm282:/var/lib/kafka/data
     ports:
       - "9092:9092"
       - "8092:8092"
@@ -85,10 +89,10 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-1:2181,zookeeper-2:2182,zookeeper-3:2183'
       KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 2
       KAFKA_JMX_PORT: 8092
-      KAFKA_CONFLUENT_LOG_PLACEMENT_CONSTRAINTS: '{"version":2,"replicas":[{"count":2,"constraints":{"rack":"mel"}},{"count":1,"constraints":{"rack":"euhq"}}],"observers":[{"count":1,"constraints":{"rack":"mel-aop"}},{"count":1,"constraints":{"rack":"euhq-aop"}}]}'
       KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 4
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_MIN_INSYNC_REPLICAS: 2
+      KAFKA_CONFLUENT_BALANCER_ENABLE: "false"
     depends_on:
       - zookeeper-1
       - zookeeper-2
@@ -99,6 +103,9 @@ services:
     image: confluentinc/cp-server:7.1.0
     hostname: broker-avivm681
     container_name: broker-avivm681
+    volumes:
+      - ./config:/etc/kafka/demo
+      - ./kafka-data/broker-avivm681:/var/lib/kafka/data
     ports:
       - "9093:9093"
       - "8093:8093"
@@ -112,10 +119,10 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-1:2181,zookeeper-2:2182,zookeeper-3:2183'
       KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 2
       KAFKA_JMX_PORT: 8093
-      KAFKA_CONFLUENT_LOG_PLACEMENT_CONSTRAINTS: '{"version":2,"replicas":[{"count":2,"constraints":{"rack":"mel"}},{"count":1,"constraints":{"rack":"euhq"}}],"observers":[{"count":1,"constraints":{"rack":"mel-aop"}},{"count":1,"constraints":{"rack":"euhq-aop"}}]}'
       KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 4
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_MIN_INSYNC_REPLICAS: 2
+      KAFKA_CONFLUENT_BALANCER_ENABLE: "false"
     depends_on:
       - zookeeper-1
       - zookeeper-2
@@ -127,6 +134,9 @@ services:
     image: confluentinc/cp-server:7.1.0
     hostname: broker-avivm682
     container_name: broker-avivm682
+    volumes:
+      - ./config:/etc/kafka/demo
+      - ./kafka-data/broker-avivm682:/var/lib/kafka/data
     ports:
       - "9094:9094"
       - "8094:8094"
@@ -140,10 +150,10 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-1:2181,zookeeper-2:2182,zookeeper-3:2183'
       KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 2
       KAFKA_JMX_PORT: 8094
-      KAFKA_CONFLUENT_LOG_PLACEMENT_CONSTRAINTS: '{"version":2,"replicas":[{"count":2,"constraints":{"rack":"mel"}},{"count":1,"constraints":{"rack":"euhq"}}],"observers":[{"count":1,"constraints":{"rack":"mel-aop"}},{"count":1,"constraints":{"rack":"euhq-aop"}}]}'
       KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 4
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_MIN_INSYNC_REPLICAS: 2
+      KAFKA_CONFLUENT_BALANCER_ENABLE: "false"
     depends_on:
       - zookeeper-1
       - zookeeper-2
@@ -156,6 +166,9 @@ services:
     image: confluentinc/cp-server:7.1.0
     hostname: broker-avivm280
     container_name: broker-avivm280
+    volumes:
+       - ./config:/etc/kafka/demo
+       - ./kafka-data/broker-avivm280:/var/lib/kafka/data
     ports:
       - "9095:9095"
       - "8095:8095"
@@ -169,10 +182,10 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-1:2181,zookeeper-2:2182,zookeeper-3:2183'
       KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 2
       KAFKA_JMX_PORT: 8095
-      KAFKA_CONFLUENT_LOG_PLACEMENT_CONSTRAINTS: '{"version":2,"replicas":[{"count":2,"constraints":{"rack":"mel"}},{"count":1,"constraints":{"rack":"euhq"}}],"observers":[{"count":1,"constraints":{"rack":"mel-aop"}},{"count":1,"constraints":{"rack":"euhq-aop"}}]}'
       KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 4
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_MIN_INSYNC_REPLICAS: 2
+      KAFKA_CONFLUENT_BALANCER_ENABLE: "false"
     depends_on:
       - zookeeper-1
       - zookeeper-2
@@ -186,6 +199,9 @@ services:
     image: confluentinc/cp-server:7.1.0
     hostname: broker-avivm680
     container_name: broker-avivm680
+    volumes:
+       - ./config:/etc/kafka/demo
+       - ./kafka-data/broker-avivm680:/var/lib/kafka/data
     ports:
       - "9096:9096"
       - "8096:8096"
@@ -199,10 +215,10 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-1:2181,zookeeper-2:2182,zookeeper-3:2183'
       KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 2
       KAFKA_JMX_PORT: 8096
-      KAFKA_CONFLUENT_LOG_PLACEMENT_CONSTRAINTS: '{"version":2,"replicas":[{"count":2,"constraints":{"rack":"mel"}},{"count":1,"constraints":{"rack":"euhq"}}],"observers":[{"count":1,"constraints":{"rack":"mel-aop"}},{"count":1,"constraints":{"rack":"euhq-aop"}}]}'
       KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 4
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_MIN_INSYNC_REPLICAS: 2
+      KAFKA_CONFLUENT_BALANCER_ENABLE: "false"
     depends_on:
       - zookeeper-1
       - zookeeper-2
